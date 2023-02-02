@@ -107,14 +107,10 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <div>
+            <img alt="brand" src="https://github.com/tanmay2626/Re-commerce/blob/master/client/src/assets/brand.png?raw=true" />
+          </div>
+          <Box sx={{ flexGrow : 1 ,display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
                 {item}
