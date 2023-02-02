@@ -1,4 +1,5 @@
 import * as React from 'react';
+import "./style.css";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,8 +15,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import InboxIcon from '@mui/icons-material/Inbox';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
 import WhatshotOutlinedIcon from '@mui/icons-material/WhatshotOutlined';
+import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
+import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
+import HelpOutlinedIcon from '@mui/icons-material/HelpOutlined';
 
 const navItems = ['Start Selling', 'ScrapYar', 'Help'];
 
@@ -29,15 +35,21 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+            <ListItemButton sx={{ pt: 2, pb: 2 }}>
+              <ListItemAvatar sx={{ width: 60, height: 60 }}>
+                <Avatar
+                  src={`/static/images/avatar/jp.jpg`}
+                  sx={{ width: 100+"%", height: 100+"%" }}
+                />
+              </ListItemAvatar>
+              <ListItemText sx={{ pl: 2 }} primary="Anushka Nalawade" />
+            </ListItemButton>
       <Divider />
-      <List>
+      <List sx={{ pt : 1 }} className="mobile-menu-list">
             <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <PhotoCameraOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Start Selling" />
             </ListItemButton>
@@ -45,7 +57,7 @@ function DrawerAppBar(props) {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <LocalMallOutlinedIcon/>
               </ListItemIcon>
               <ListItemText primary="Your Orders" />
             </ListItemButton>
@@ -53,12 +65,12 @@ function DrawerAppBar(props) {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <ShoppingBasketOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="ScrapArt" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
+          <ListItem sx={{ pb : 1 }} disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <WhatshotOutlinedIcon />
@@ -66,10 +78,11 @@ function DrawerAppBar(props) {
               <ListItemText primary="Deals" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
+          <Divider />
+          <ListItem sx={{ pt : 1 }} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <HelpOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Help" />
             </ListItemButton>
