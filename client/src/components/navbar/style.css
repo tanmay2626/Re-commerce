@@ -1,6 +1,6 @@
 
 .brand-img{
-    width: 100%;
+    width: 7rem;
 }
 
 .navbar-select{
@@ -19,4 +19,8 @@
 
 @media (min-width: 1025px) and (max-width: 1280px){
     
+    .brand-img{
+        width: 8rem;
+    }
+
 }

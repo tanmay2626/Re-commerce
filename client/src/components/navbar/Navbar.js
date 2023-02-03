@@ -21,13 +21,10 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-import Grid from "@mui/material/Grid";
 import Search from "../../common/Search";
-
-const navItems = ["ScrapArt", "Orders"];
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -112,45 +109,42 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ width: { xs: 40 + "%", lg: 8 + "rem" }, ml: { xs: -2, lg: 3}, pt: 1,  }}>
+          <Box sx={{ ml: { xs: -2, lg: 3}, pt: 1,  }}>
             <img
               className="brand-img"
               alt="brand"
               src="https://github.com/tanmay2626/Re-commerce/blob/nav-bar/client/src/assets/brand-logo.png?raw=true"
             />
           </Box>
-          <Box sx={{ margin: "0 0 0 auto", mb: 0, mr: { xs: -1, lg: 0 }, ml: { lg: 9 } }}>
-            <Grid container>
-              <Grid item xs={3}>
-                <LocationOnOutlinedIcon sx={{ color: "black", mt: 0.9, fontSize: 1.2+"rem" }} />
-              </Grid>
-              <Grid item xs={9}>
-                <Select />
-              </Grid>
-            </Grid>
+          <Box sx={{ m: "20px 0 10px auto " , mr: -1 , display: { xs: "inline-block" , md: "none" }, float: "right", ml: { lg: 9 } }}>
+            <Select />
           </Box>
-          <Search />
+          
           <Box
             sx={{
               flexGrow: 1,
               textAlign: "right",
               display: { xs: "none", sm: "block" },
-              mt: 1
+              mt: 1,
             }}
           >
-            <Button sx={{ color: "black", textTransform: "none", mr: 3 }}>
-              Sell
+            <Button size="large" sx={{ color: "black", textTransform: "none", mr: 2 }}>
+              Try ScrapArt!
             </Button>
-            {navItems.map((item) => (
-              <Button
-                key={item}
-                sx={{ color: "black", textTransform: "none", mr: 3 }}
-              >
-                {item}
-              </Button>
-            ))}
-            <Button startIcon={<ShoppingCartRoundedIcon />} sx={{ color: "black", textTransform: "none" }}>
-              Cart
+          <Box sx={{ display: "inline-block", mr: 3 }}>
+            <Search />
+          </Box>
+          <Box sx={{ display: { md: "inline-block" , xs: "none" } , verticalAlign: "middle" }}>
+            <Select />
+          </Box>
+            <Button size="large" startIcon={<PermIdentityOutlinedIcon />} sx={{ color: "black", textTransform: "none", mr: 0.5 }}>
+              Account
+            </Button>
+            <Button size="large" startIcon={<BookmarkBorderOutlinedIcon />} sx={{ color: "black", textTransform: "none", mr: 0.5 }}>
+              Order
+            </Button>
+            <Button size="large" startIcon={<ShoppingCartOutlinedIcon />} sx={{ color: "black", textTransform: "none" }}>
+              Cart(0)
             </Button>
           </Box>
         </Toolbar>
