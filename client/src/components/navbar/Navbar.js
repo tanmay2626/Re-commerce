@@ -17,13 +17,17 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import WhatshotOutlinedIcon from "@mui/icons-material/WhatshotOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+import Grid from "@mui/material/Grid";
+import Search from "../../common/Search";
 
-const navItems = [ "ScrapArt", "Orders"];
+const navItems = ["ScrapArt", "Orders"];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -73,9 +77,9 @@ function DrawerAppBar(props) {
         <ListItem sx={{ pb: 1 }} disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <WhatshotOutlinedIcon />
+              <ShoppingCartOutlinedIcon />
             </ListItemIcon>
-            <ListItemText primary="Deals" />
+            <ListItemText primary="Cart" />
           </ListItemButton>
         </ListItem>
         <Divider />
@@ -97,7 +101,7 @@ function DrawerAppBar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar sx={{ bgcolor: "#fff" }} component="nav">
+      <AppBar elevation={0} sx={{ bgcolor: "#fff" }} component="nav">
         <Toolbar sx={{ pt: 1, pb: 1 }}>
           <IconButton
             color="black"
@@ -108,26 +112,46 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ width: { xs: 40 + "%", lg: 10+"rem" }, ml: -2, pt: 1 }}>
+          <Box sx={{ width: { xs: 40 + "%", lg: 8 + "rem" }, ml: { xs: -2, lg: 3}, pt: 1,  }}>
             <img
               className="brand-img"
               alt="brand"
-              src="https://github.com/tanmay2626/Re-commerce/blob/nav-bar/client/src/assets/brand.png?raw=true"
+              src="https://github.com/tanmay2626/Re-commerce/blob/nav-bar/client/src/assets/brand-logo.png?raw=true"
             />
           </Box>
-          <Select />
-          <Box sx={{ flexGrow: 1, textAlign: "right" ,display: { xs: "none", sm: "block" } }}>
-          <Button  sx={{ color: "black", textTransform: "none", mr: 3 }}>
-                Sell
-              </Button>
+          <Box sx={{ margin: "0 0 0 auto", mb: 0, mr: { xs: -1, lg: 0 }, ml: { lg: 9 } }}>
+            <Grid container>
+              <Grid item xs={3}>
+                <LocationOnOutlinedIcon sx={{ color: "black", mt: 0.9, fontSize: 1.2+"rem" }} />
+              </Grid>
+              <Grid item xs={9}>
+                <Select />
+              </Grid>
+            </Grid>
+          </Box>
+          <Search />
+          <Box
+            sx={{
+              flexGrow: 1,
+              textAlign: "right",
+              display: { xs: "none", sm: "block" },
+              mt: 1
+            }}
+          >
+            <Button sx={{ color: "black", textTransform: "none", mr: 3 }}>
+              Sell
+            </Button>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "black", textTransform: "none", mr: 3 }}>
+              <Button
+                key={item}
+                sx={{ color: "black", textTransform: "none", mr: 3 }}
+              >
                 {item}
               </Button>
             ))}
-            <Button  sx={{ color: "black", textTransform: "none"}}>
-                Sign In
-              </Button>
+            <Button startIcon={<ShoppingCartRoundedIcon />} sx={{ color: "black", textTransform: "none" }}>
+              Cart
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>

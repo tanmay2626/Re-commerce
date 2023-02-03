@@ -3,29 +3,18 @@
     width: 100%;
 }
 
-.navbar-select-box{
-    display: flex;
-    margin: 10px 0 0 auto;
-    margin-right: -5px;
-    width: 30%;
-}
-
-.navbar-select-icon{
-    flex: 30;
-    
-}
-
-.navbar-select-main{
-    flex: 70;
-}
-
 .navbar-select{
     margin-top: 5px;
     border: none;
     font-weight: 600;
+    padding: 4px 0px 4px 0px ;
     font-family: 'Montserrat', sans-serif;
 }
 
+.custom-font{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
 
 
 @media (min-width: 1025px) and (max-width: 1280px){

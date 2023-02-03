@@ -10,17 +10,12 @@ export default function SelectVariants() {
 
   return (
     <div className="navbar-select-box">
-    <div className="navbar-select-icon" >
-    <LocationOnOutlinedIcon sx={{ color: "black", width: 100+"%", ml: 0.5  }} />
-    </div>
-    <div className="navbar-select-main">
     <form>
         <select className="navbar-select">
-          <option value="volvo">Pune</option>
-          <option value="saab">Delhi</option>
+          <option value={10}>Pune</option>
+          <option value={20}>Delhi</option>
         </select>
       </form>
-    </div>
     </div>
   );
 }
