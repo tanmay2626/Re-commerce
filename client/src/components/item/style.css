@@ -1,0 +1,23 @@
+
+.item-img{
+    border-radius: 5px;
+    background-color: #F5F5F5;
+    height: 200px;
+}
+
+.item-img img{
+    height: 100%;
+}
+
+@media (max-width: 480px){
+    .item{
+        margin-bottom: 15px;
+    }
+
+    .item-add-to-cart{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+

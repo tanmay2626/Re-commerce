@@ -1,0 +1,22 @@
+
+.home-page{
+    text-align: left;
+}
+
+.home-page h4{
+    padding-left: 10px;
+    font-weight: 800;
+}
+
+@media (min-width: 1025px){
+
+.home-feed-section{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.home-page h4{
+    padding-left: 0px;
+}
+
+}
