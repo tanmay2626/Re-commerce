@@ -8,6 +8,19 @@
     font-weight: 800;
 }
 
+.home-deals{
+    display: flex;
+}
+
+.home-deals-text{
+    flex: 60;
+}
+
+.home-deals-filter{
+    flex: 40;
+    text-align: right;
+}
+
 @media (min-width: 1025px){
 
 .home-feed-section{
@@ -17,6 +30,14 @@
 
 .home-page h4{
     padding-left: 0px;
+}
+
+.home-deals-text{
+    flex: 87;
+}
+
+.home-deals-filter{
+    flex: 13;
 }
 
 }

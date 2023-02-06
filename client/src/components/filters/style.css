@@ -1,0 +1,33 @@
+
+.filter{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;  
+    padding: 0px;
+}
+
+.filter-icon{
+    flex: 20;
+}
+
+.filter-element{
+    flex: 80;
+    padding-top: 2px;
+}
+
+.native-select{
+    width: 100%;
+}
+
+.filter-loc{
+    width: 100%;
+    display: flex;
+}
+
+.filter-loc-icon{
+    flex: 20;
+}
+
+.filter-loc-element{
+    flex: 80;
+}

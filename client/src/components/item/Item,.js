@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Chip from '@mui/material/Chip'; 
+import { IconButton } from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const Item = (props) => {
@@ -15,7 +16,9 @@ const Item = (props) => {
 
   return (
     <Card className="item" elevation={0} sx={{ textAlign: "right" }}>
-    <FavoriteBorderIcon sx={{ position: "absolute", fontSize: 25, ml: -5, mt: 1 }} />
+    <IconButton sx={{ position: "absolute",ml: -5 }} color="primary" aria-label="add to shopping cart">
+    <FavoriteBorderIcon sx={{ fontSize: 25, color: "black" }} />
+</IconButton>
       <CardMedia className="item-img" component="img" alt="green iguana" sx={{ objectFit: "contain" }} image="https://apollo-singapore.akamaized.net/v1/files/r8i176uj2obj2-IN/image;s=300x600;q=60" />
       <CardContent sx={{ p: 1, "&:last-child": { pb: 0 }, textAlign: "left" }}>
         <Typography
