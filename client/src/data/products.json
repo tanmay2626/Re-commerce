@@ -1,0 +1,97 @@
+{
+    "products" : [
+    {
+        "product_id" : "id_xx1",
+        "product_name" : "APPLE IPHONE 11 PRO- 128 GB WITH 50% OF",
+        "img_url" : "https://apollo-singapore.akamaized.net/v1/files/r8i176uj2obj2-IN/image;s=780x0;q=60",
+        "description" : "In proper condition and working smoothly!",
+        "price" : 34999,
+        "category" : "Mobile",
+        "created_at" : "07/02/23",
+        "usage" : "8 months used",
+        "user_id" : "user_xx1",
+        "username" : "Ravish Kumar",
+        "contact_details" : { 
+            "mobile_no" : 9765432581,
+            "email": "ravishofficial@gmail.com",
+            "address" : "Dwarka",
+            "city" : "Delhi"
+        }
+    },
+    {
+        "product_id" : "id_xx2",
+        "product_name" : "Maruti Suzuki Wagon-R-10",
+        "img_url" : "https://apollo-singapore.akamaized.net/v1/files/e5zr29ksn1l22-IN/image;s=300x600;q=60",
+        "description" : "Never had accident and not used very often",
+        "price" : 239000,
+        "category" : "Cars",
+        "created_at" : "4/02/23",
+        "usage" : "2012 - 61,000km",
+        "user_id" : "user_xx2",
+        "username" : "Sam Curran",
+        "contact_details" : { 
+            "mobile_no" : 9767392821,
+            "email": "samcurran788@gmail.com",
+            "address" : "Faridabad",
+            "city" : "Delhi"
+        }
+    },
+    {
+        "product_id" : "id_xx3",
+        "product_name" : "Designer L-Shape Sofa",
+        "img_url" : "https://apollo-singapore.akamaized.net/v1/files/be48ue9nhjq33-IN/image;s=300x600;q=60",
+        "description" : "Comfortable and without any stains",
+        "price" : 20000,
+        "category" : "Furniture",
+        "created_at" : "26/01/23",
+        "usage" : "2 year old",
+        "user_id" : "user_xx3",
+        "username" : "Pratham",
+        "contact_details" : { 
+            "mobile_no" : 9778292821,
+            "email": "pratham788@gmail.com",
+            "address" : "Chakan",
+            "city" : "Pune"
+        }
+    },
+    {
+        "product_id" : "id_xx5",
+        "product_name" : "Samsung Flip 4 8/256GB",
+        "img_url" : "https://apollo-singapore.akamaized.net/v1/files/dmz7tak47zh93-IN/image;s=300x600;q=60",
+        "description" : "Available with charger and bill.",
+        "price" : 65000,
+        "category" : "Mobile",
+        "created_at" : "05/01/23",
+        "usage" : "1 year old",
+        "user_id" : "user_xx5",
+        "username" : "Sonam",
+        "contact_details" : { 
+            "mobile_no" : 9778292821,
+            "email": "sonampram@gmail.com",
+            "address" : "Chandani Chowk",
+            "city" : "Delhi"
+        }
+    },
+    {
+        "product_id" : "id_xx6",
+        "product_name" : "LG 6.5 Kg Washing Machine",
+        "img_url" : "https://apollo-singapore.akamaized.net/v1/files/jnch83ncq6cg-IN/image;s=300x600;q=60",
+        "description" : "In working condition with no dents.",
+        "price" : 25000,
+        "category" : "Electronics",
+        "created_at" : "02/01/23",
+        "usage" : "4 year old",
+        "user_id" : "user_xx6",
+        "username" : "Priti Kadam",
+        "contact_details" : { 
+            "mobile_no" : 7788292821,
+            "email": "pritixxd@gmail.com",
+            "address" : "Aundh",
+            "city" : "Pune"
+        }
+    }
+
+
+]
+
+}

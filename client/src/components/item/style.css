@@ -9,6 +9,21 @@
     height: 100%;
 }
 
+.item-desc{
+    display: flex;
+    font-size: 0.9rem;
+    padding-top: 10px;
+}
+
+.item-city{
+    flex: 40;
+}
+
+.item-date{
+    flex: 60;
+    text-align: right;
+}
+
 @media (max-width: 480px){
     .item{
         margin-bottom: 15px;
