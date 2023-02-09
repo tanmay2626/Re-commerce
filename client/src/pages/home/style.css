@@ -2,6 +2,7 @@
 .home-page{
     text-align: left;
     margin-bottom: 50px;
+    margin-top: -10px;
 }
 
 .home-page h4{
@@ -23,6 +24,10 @@
 }
 
 @media (min-width: 1025px){
+
+.home-page{
+    margin-top: 0px;
+}
 
 .home-feed-section{
     width: 90%;

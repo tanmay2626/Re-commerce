@@ -14,7 +14,6 @@ const Home = (props) => {
         sx={{ display: { xs: "inline-block", md: "none" }, width: 100 + "%" }}
       >
         <Search />
-        {/* Todo: Categories */}
       </Box>
       <Box className="home-feed-section">
         <div className="home-deals">

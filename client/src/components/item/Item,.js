@@ -12,11 +12,6 @@ const Item = ({ name, price, img, city, date}) => {
   const d = new Date().toDateString()
   const val = d.split(" ");
 
-  const handleClick = () =>{
-
-    console.log("hi")
-  }
-
   return (
     <Card className="item"  sx={{ textAlign: "right" }}>
     <IconButton sx={{ position: "absolute",ml: -5 }} color="primary" aria-label="add to shopping cart">
