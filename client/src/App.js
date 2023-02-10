@@ -15,8 +15,8 @@ function App() {
       {/* Todo: setup custom param for product */}
       <Route path='/product' exact element={<Product />} />
     </Routes>
-   <Footer />
     </div>
+    <Footer />
     </Router>
   );
 }

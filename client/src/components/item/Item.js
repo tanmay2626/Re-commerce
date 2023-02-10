@@ -13,7 +13,7 @@ const Item = ({ name, price, img, city, date}) => {
   const val = d.split(" ");
 
   return (
-    <Card className="item"  sx={{ textAlign: "right" }}>
+    <Card className="item"  elevation={0} sx={{ textAlign: "right" }}>
     <IconButton sx={{ position: "absolute",ml: -5 }} color="primary" aria-label="add to shopping cart">
     <FavoriteBorderIcon sx={{ fontSize: 25, color: "black" }} />
 </IconButton>

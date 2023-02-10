@@ -1,4 +1,186 @@
 
-.product{
-    margin-top: 100px;
+
+.product-page{
+    margin-top: 60px;
+    width: 100%;
+    height: auto;
+}
+
+.product-img{
+    height: 250px;
+    border-radius: 5px;
+    object-fit: contain;
+    background-color: #F5F5F5;
+}
+
+.product-img img{
+    height: 100%;
+}
+
+.product-headline{
+    text-align: left;
+    padding-left: 10px;
+    margin-top: -25px;
+    line-height: 40px;
+    padding: 15px;
+}
+
+.product-headline h2{
+    font-size: 1.2rem;
+}
+
+.product-headline p{
+    margin-top: -25px;
+    font-weight: 600;
+    color: gray;
+    font-size: 0.9rem;
+    line-height: 25px;
+}
+
+.product-bill{
+    text-align: left;
+    padding-left: 15px;
+    margin-top: -40px;
+}
+
+.product-bill h2{
+    font-size: 1.3rem;
+}
+
+.product-bill p{
+    font-size: 0.8rem;
+    margin-top: -25px;
+}
+
+.product-contact{
+    padding: 10px;
+}
+
+.user-profile{
+    height: 60px;
+    display: flex;
+}
+
+.profile-icon{
+    flex: 25;
+    object-fit: contain;
+}
+
+.profile-icon img{
+    height: 100%;
+}
+
+.profile-name{
+    flex: 60;
+    text-align: left;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.profile-redirect{
+    flex: 15;
+    padding-top: 5px;
+}
+
+.contact-details{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 60px;
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+.contact-details span{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.country-code{
+    flex: 20;
+    display: table;
+}
+
+.mobile-number{
+    flex: 60;
+    display: table;
+    border: 1px;
+    border-radius: 15px;
+    background-color: #F5F5F5;
+}
+
+.reveal-number{
+    flex: 20;
+    display: table;
+    padding-top: 5px;
+}
+    
+.contact-username{
+    flex: 75;
+    padding-left: 10px;
+    line-height: 40px;
+}
+
+.product-details{
+    margin-top: -10px;
+    text-align: center;
+}
+
+table{
+    text-align: left;
+    margin-top: 10px;
+    font-size: 1rem;
+    width: 95%;
+    font-size: 0.95rem;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.table-value{
+    font-weight: 500;
+    color: gray;
+}
+
+@media (min-width: 1025px){
+.product-container{
+    display: flex;
+    padding: 20px 50px 0px 50px;
+    width: 100%;
+
+}
+
+
+.product-img{
+    flex: 60;
+    height: 550px;
+}
+
+.product-img img{
+    height: 100%;
+}
+
+.product-headline-dsktp{
+    flex: 40;
+    text-align: left;
+    padding-left: 60px;
+}
+
+.user-profile{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.contact-details{
+    text-align: center;
+    width: 75%;
+}
+
+table{
+    text-align: left;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    width: 95%;
+}
+
 }
