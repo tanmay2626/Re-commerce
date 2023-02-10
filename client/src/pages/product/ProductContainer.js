@@ -12,7 +12,6 @@ const data = currentItem.currentItem
   return (
     <div className='product-container'>
       <div className='product-img'>
-       {/* Todo: update alt with product id */}
       <img alt={data.product_id} src={data.img_url} />
       </div>
       <div className='product-headline-dsktp'>
@@ -22,7 +21,7 @@ const data = currentItem.currentItem
       </div>
       <div className='product-bill'>
       <h2>₹ {data.price}</h2>
-      <p>{data.desc}</p>
+      <p>This price is negotiable.</p>
       </div>
       <Divider sx={{ width: { xs: 90 + "%", md: 100+ "%"}, m: "0 auto" }} />
       <ProductContact username={data.username} user_id={data.user_id}
