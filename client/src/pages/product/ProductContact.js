@@ -9,10 +9,10 @@ const ProductContact = (props) => {
     <div className="product-contact">
     <div className="user-profile">
       <div className="profile-icon">
-      <img alt="profile_id" src="https://github.com/tanmay2626/images/blob/main/man.png?raw=true" />
+      <img alt={props.user_id} src="https://github.com/tanmay2626/images/blob/main/man.png?raw=true" />
       </div>
       <div className="profile-name">
-      Shrivastav G
+      {props.username}
       </div>
       <div className="profile-redirect">
       <IconButton>
@@ -25,7 +25,7 @@ const ProductContact = (props) => {
       <span>+91</span>
       </div>
       <div className="mobile-number">
-      <span>9*******</span>
+      <span>{props.contact_details.mobile_no}</span>
       </div>
       <div className="reveal-number">
       <IconButton>

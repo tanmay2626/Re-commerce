@@ -12,8 +12,11 @@ const ItemList = props => {
     {
       products.map((item, index)=>{
         return(
-          <Item key={index} name={item.product_name} date={item.created_at}
-           price={item.price} img={item.img_url} city={item.contact_details.city}  />
+          <Item key={index} product_name={item.product_name} created_at={item.created_at}
+           price={item.price} img_url={item.img_url} contact_details={item.contact_details}
+           brand={item.brand} product_id={item.product_id} usage={item.usage} user_id={item.user_id}
+            username={item.username} category={item.category} desc={item.description} 
+            />
         )
       })
     }

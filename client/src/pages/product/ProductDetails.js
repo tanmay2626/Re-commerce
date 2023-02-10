@@ -14,7 +14,7 @@ const ProductDetails = props => {
     <LocationCityIcon sx={{ pt: 1 }} /><strong>Brand</strong>
     </td>
     <td className='table-value'>
-    Apple
+    {props.brand}
     </td>
     </tr>
     <tr>
@@ -22,7 +22,7 @@ const ProductDetails = props => {
     <DataUsageIcon sx={{ pt: 1 }} /><strong>Usage</strong>
     </td>
     <td className='table-value'>
-    8 months
+    {props.usage}
     </td>
     </tr>
     <tr>
@@ -30,7 +30,7 @@ const ProductDetails = props => {
     <MapIcon sx={{ pt: 1 }} /><strong>Address</strong>
     </td>
     <td className='table-value'>
-    Pune
+    {props.city}
     </td>
     </tr>
     <tr>
@@ -38,7 +38,7 @@ const ProductDetails = props => {
     <CalendarMonthIcon sx={{ pt: 1 }} /><strong>Posting Date</strong>
     </td>
     <td className='table-value'>
-    09 Feb 2023
+    {props.created_at}
     </td>
     </tr>
     </tbody>    
