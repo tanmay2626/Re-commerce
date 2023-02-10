@@ -17,14 +17,14 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
-import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 import Search from "../../common/Search";
-import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import { Link } from "react-router-dom";
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -36,7 +36,7 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <ListItemButton sx={{ pt: 2, pb: 2 }}>
+      <ListItemButton  component={Link} to="/login"  sx={{ pt: 2, pb: 2 }}>
         <ListItemAvatar sx={{ width: 60, height: 60 }}>
           <Avatar
             src={`/static/images/avatar/jp.jpg`}
@@ -47,8 +47,8 @@ function DrawerAppBar(props) {
       </ListItemButton>
       <Divider />
       <List sx={{ pt: 1 }} className="mobile-menu-list">
-        <ListItem disablePadding>
-          <ListItemButton>
+        <ListItem  disablePadding>
+          <ListItemButton component={Link} to="/sell" >
             <ListItemIcon>
               <PhotoCameraOutlinedIcon />
             </ListItemIcon>
@@ -56,32 +56,24 @@ function DrawerAppBar(props) {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component={Link} to="/wishlist" >
             <ListItemIcon>
-              <LocalMallOutlinedIcon />
+              <FavoriteBorderIcon />
             </ListItemIcon>
-            <ListItemText primary="Your Orders" />
+            <ListItemText primary="Wishlist" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component={Link} to="/scrapart" >
             <ListItemIcon>
               <ShoppingBasketOutlinedIcon />
             </ListItemIcon>
             <ListItemText primary="ScrapArt" />
           </ListItemButton>
         </ListItem>
-        <ListItem sx={{ pb: 1 }} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <ShoppingCartOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary="Cart" />
-          </ListItemButton>
-        </ListItem>
         <Divider />
         <ListItem sx={{ pt: 1 }} disablePadding>
-          <ListItemButton>
+          <ListItemButton component={Link} to="/help" >
             <ListItemIcon>
               <HelpOutlinedIcon />
             </ListItemIcon>
@@ -109,7 +101,7 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ ml: { xs: -2, lg: 3}, pt: 1,  }}>
+          <Box component={Link} to="/"  sx={{ ml: { xs: -2, lg: 3}, pt: 1,  }}>
             <img
               className="brand-img"
               alt="brand"
@@ -134,17 +126,17 @@ function DrawerAppBar(props) {
           <Box sx={{ display: "inline-block", mr: 3 }}>
             <Search />
           </Box>
-          <Box sx={{ display: { md: "inline-block" , xs: "none" } , verticalAlign: "middle" }}>
+          <Box sx={{ display: { md: "inline-block" , xs: "none" } , verticalAlign: "middle", mr: 0.5 }}>
             <SelectLocation />
           </Box>
             <Button size="large" startIcon={<PermIdentityOutlinedIcon />} sx={{ color: "black", textTransform: "none", mr: 0.5 }}>
               Account
             </Button>
-            <Button size="large" startIcon={<BookmarkBorderOutlinedIcon />} sx={{ color: "black", textTransform: "none", mr: 0.5 }}>
-              Order
+            <Button size="large" startIcon={<FavoriteBorderIcon />} sx={{ color: "black", textTransform: "none", mr: 1 }}>
+            Wishlist
             </Button>
-            <Button size="large" startIcon={<ShoppingCartOutlinedIcon />} sx={{ color: "black", textTransform: "none" }}>
-              Cart(0)
+            <Button size="medium" variant="outlined"  startIcon={<PhotoCameraOutlinedIcon />} sx={{ color: "black", textTransform: "none", bgcolor: "#8BF5FA" , p: 1, width: 90+"px", borderRadius: 5 }}>
+              Sell
             </Button>
           </Box>
         </Toolbar>
