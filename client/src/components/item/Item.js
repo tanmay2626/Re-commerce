@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css"
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { IconButton } from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useStateValue } from "../../context/StateProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -13,9 +14,10 @@ const Item = (props) => {
   // eslint-disable-next-line no-empty-pattern
   const navigate = useNavigate();
   const [{ }, dispatch] = useStateValue();
+  const [flag,setFlag] = useState(false);
 
 
-  const d = new Date().toDateString()
+  const d = new Date().toDateString();
   const val = d.split(" ");
 
   const handleClick = () =>{
@@ -39,13 +41,42 @@ const Item = (props) => {
     navigate("/product")
   }
 
+  const handleFav = (e) =>{
+
+    if(!flag){
+      setFlag(true);
+      dispatch({
+        type: "ADD_TO_WISHLIST",
+        item: {
+          product_id : props.product_id,
+          product_name: props.product_name,
+          price : props.price,
+          img_url : props.img_url,
+        } 
+      })
+    }else{
+      setFlag(false);
+      dispatch({
+        type: "REMOVE_FROM_WISHLIST",
+        product_id : props.product_id
+      })
+
+    }
+
+  }
+
+  //useEffect(() => { }, [flag])
+  
+
 
   return (
-    <Card onClick={handleClick}  className="item"  elevation={0} sx={{ textAlign: "right" }}>
-    <IconButton sx={{ position: "absolute",ml: -5 }} color="primary" aria-label="add to shopping cart">
-    <FavoriteBorderIcon sx={{ fontSize: 25, color: "black" }} />
+    <Card  className="item"  elevation={0} sx={{ textAlign: "right" }}>
+    <IconButton  onClick={handleFav} sx={{ position: "absolute",ml: -5, bgcolor: "black", opacity:0.6  }} color="primary">
+    {
+      !flag ? <FavoriteBorderIcon sx={{ fontSize: 25, color: "white" }} /> : <FavoriteIcon sx={{ fontSize: 25, color: "#8BF5FA" }} />
+    }
 </IconButton>
-      <CardMedia className="item-img" component="img" alt="green iguana" sx={{ objectFit: "contain" }} image={props.img_url} />
+      <CardMedia onClick={handleClick}  className="item-img" component="img" alt="green iguana" sx={{ objectFit: "contain" }} image={props.img_url} />
       <CardContent sx={{ p: 1, "&:last-child": { pb: 0 }, textAlign: "left" }}>
         <Typography
           sx={{

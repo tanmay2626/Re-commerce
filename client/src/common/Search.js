@@ -3,8 +3,19 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import { useStateValue } from "../context/StateProvider"
 
-export default function Search() {
+const Search = () => {
+
+  const [{ },dispatch] = useStateValue();
+
+  const handleSearch = (e) =>{
+    dispatch({
+      type: "SET_SEARCH",
+      item : e.target.value
+    })
+  }
+
   return (
     <Paper
     elevation={0}
@@ -15,6 +26,7 @@ export default function Search() {
         sx={{ ml: 1, flex: 1, fontSize: 0.8+"rem" }}
         placeholder="Search"
         inputProps={{ 'aria-label': 'search items' }}
+        onChange={handleSearch}
       />
       <IconButton type="button" sx={{ p: '2px' }} aria-label="search">
         <SearchIcon fontSize="small" />
@@ -23,3 +35,5 @@ export default function Search() {
 
   );
 }
+
+export default Search

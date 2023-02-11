@@ -2,7 +2,7 @@
     "products" : [
     {
         "product_id" : "id_xx1",
-        "product_name" : "APPLE IPHONE 11 PRO- 128 GB WITH 50% OF",
+        "product_name" : "APPLE IPHONE 11 PRO- 128 GB",
         "img_url" : "https://apollo-singapore.akamaized.net/v1/files/r8i176uj2obj2-IN/image;s=780x0;q=60",
         "description" : "In proper condition and working smoothly!",
         "price" : 34999,
@@ -16,7 +16,7 @@
             "mobile_no" : 9765432581,
             "email": "ravishofficial@gmail.com",
             "address" : "Dwarka",
-            "city" : "Delhi"
+            "city" : "Mumbai"
         }
     },
     {
@@ -35,7 +35,7 @@
             "mobile_no" : 9767392821,
             "email": "samcurran788@gmail.com",
             "address" : "Faridabad",
-            "city" : "Delhi"
+            "city" : "Mumbai"
         }
     },
     {
@@ -73,7 +73,7 @@
             "mobile_no" : 9778292821,
             "email": "sonampram@gmail.com",
             "address" : "Chandani Chowk",
-            "city" : "Delhi"
+            "city" : "Mumbai"
         }
     },
     {

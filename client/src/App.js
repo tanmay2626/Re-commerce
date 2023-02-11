@@ -6,6 +6,7 @@ import Home from './pages/home/Home';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './pages/authentication/Login';
 import Register from './pages/authentication/Register';
+import WishList from './pages/wishlist/WishList';
 
 function App() {
 
@@ -16,9 +17,11 @@ function App() {
     <Routes>
       <Route path='/' exact element={<Home />} />
       {/* Todo: setup custom param for product */}
+      {/* Todo: screate Failure & Profile Page*/}
       <Route path='/product' exact element={<Product />} />
       <Route path='/login' exact element={<Login />} />
       <Route path='/register' exact element={<Register />} />
+      <Route path='/wishlist' exact element={<WishList />} />
     </Routes>
     </div>
     <Footer />

@@ -1,12 +1,17 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import Search from "../../common/Search";
 import Banner from "../../components/banner/Banner";
 import Filter from "../../components/filters/SelectCategory";
 import ItemList from "../../components/item-list/ItemList";
 import "./style.css";
+import { useStateValue } from "../../context/StateProvider"
 
 const Home = (props) => {
+  const [{ search }] = useStateValue();
+
+  useEffect(()=>{},[search]);
+
   return (
     <div className="home-page">
       <Banner />
@@ -18,7 +23,7 @@ const Home = (props) => {
       <Box className="home-feed-section">
         <div className="home-deals">
           <div className="home-deals-text">
-            <h4>Deals For You!</h4>
+            <h4>{!search? 'Deals For You!' : `Search results for "${search}"`}</h4>
           </div>
           <div className="home-deals-filter">
             <Filter />

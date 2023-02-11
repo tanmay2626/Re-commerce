@@ -1,0 +1,19 @@
+
+.wishlist-page{
+    margin: 0 auto;
+    margin-top: 75px;
+    text-align: left;
+    width: 98%;
+}
+
+.wishlist-page h2{
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+
+@media (min-width: 1025px){
+
+    .wishlist-page{
+        width: 70%;
+    }
+}

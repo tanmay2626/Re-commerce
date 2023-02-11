@@ -17,7 +17,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
@@ -64,7 +63,7 @@ function DrawerAppBar(props) {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component={Link} to="/scrapart" >
+          <ListItemButton sx={{ pb: 2 }} component={Link} to="/scrapart" >
             <ListItemIcon>
               <ShoppingBasketOutlinedIcon />
             </ListItemIcon>
@@ -129,13 +128,13 @@ function DrawerAppBar(props) {
           <Box sx={{ display: { md: "inline-block" , xs: "none" } , verticalAlign: "middle", mr: 0.5 }}>
             <SelectLocation />
           </Box>
-            <Button size="large" startIcon={<PermIdentityOutlinedIcon />} sx={{ color: "black", textTransform: "none", mr: 0.5 }}>
+            <Button component={Link} to="/login"  size="large" startIcon={<PermIdentityOutlinedIcon />} sx={{ color: "black", textTransform: "none", mr: 0.5 }}>
               Account
             </Button>
-            <Button size="large" startIcon={<FavoriteBorderIcon />} sx={{ color: "black", textTransform: "none", mr: 1 }}>
+            <Button size="large" component={Link} to="/wishlist"  startIcon={<FavoriteBorderIcon />} sx={{ color: "black", textTransform: "none", mr: 1 }}>
             Wishlist
             </Button>
-            <Button size="medium" variant="outlined"  startIcon={<PhotoCameraOutlinedIcon />} sx={{ color: "black", textTransform: "none", bgcolor: "#8BF5FA" , p: 1, width: 90+"px", borderRadius: 5 }}>
+            <Button size="medium" variant="outlined"  startIcon={<PhotoCameraOutlinedIcon />} sx={{ color: "black", textTransform: "none", bgcolor: "#8BF5FA" , border: 2,  borderColor: "black" , p: 1, width: 90+"px", borderRadius: 5 }}>
               Sell
             </Button>
           </Box>

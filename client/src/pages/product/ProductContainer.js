@@ -5,8 +5,8 @@ import ProductDetails from './ProductDetails';
 import { useStateValue } from "../../context/StateProvider"
 
 const ProductContainer = (props) => {
-  const [currentItem] = useStateValue()
-const data = currentItem.currentItem
+  const [{currentItem}] = useStateValue()
+const data = currentItem
 
 
   return (
