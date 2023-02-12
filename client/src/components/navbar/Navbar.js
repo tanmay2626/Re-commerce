@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import SelectLocation from "../filters/SelectLocation";
 import AppBar from "@mui/material/AppBar";
@@ -24,10 +24,12 @@ import Search from "../../common/Search";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import { Link } from "react-router-dom";
+import { useStateValue } from "../../context/StateProvider";
 
 function DrawerAppBar(props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [{user}] = useStateValue();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -35,14 +37,14 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <ListItemButton  component={Link} to="/login"  sx={{ pt: 2, pb: 2 }}>
+      <ListItemButton  component={Link} to={user? "/profile" : "/login" }  sx={{ pt: 2, pb: 2 }}>
         <ListItemAvatar sx={{ width: 60, height: 60 }}>
           <Avatar
             src={`/static/images/avatar/jp.jpg`}
             sx={{ width: 100 + "%", height: 100 + "%" }}
           />
         </ListItemAvatar>
-        <ListItemText sx={{ pl: 2 }} primary="Anushka Nalawade" />
+        <ListItemText sx={{ pl: 2 }} primary={user ? `Hello, ${user.username}` : "Login" } />
       </ListItemButton>
       <Divider />
       <List sx={{ pt: 1 }} className="mobile-menu-list">
@@ -55,7 +57,7 @@ function DrawerAppBar(props) {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component={Link} to="/wishlist" >
+          <ListItemButton component={Link} to={user? "/wishlist" : "/login" } >
             <ListItemIcon>
               <FavoriteBorderIcon />
             </ListItemIcon>
@@ -119,7 +121,7 @@ function DrawerAppBar(props) {
               mt: 1,
             }}
           >
-            <Button size="large" sx={{ color: "black", textTransform: "none", mr: 2 }}>
+            <Button size="large" component={Link} to="/scrapart" sx={{ color: "black", textTransform: "none", mr: 2 }}>
               Try ScrapArt!
             </Button>
           <Box sx={{ display: "inline-block", mr: 3 }}>
@@ -128,13 +130,13 @@ function DrawerAppBar(props) {
           <Box sx={{ display: { md: "inline-block" , xs: "none" } , verticalAlign: "middle", mr: 0.5 }}>
             <SelectLocation />
           </Box>
-            <Button component={Link} to="/login"  size="large" startIcon={<PermIdentityOutlinedIcon />} sx={{ color: "black", textTransform: "none", mr: 0.5 }}>
-              Account
+            <Button component={Link} to={user? "/profile" : "/login" }  size="large" startIcon={<PermIdentityOutlinedIcon />} sx={{ color: "black", textTransform: "none", mr: 0.5 }}>
+            {user ? `Hello, ${user.username}` : "Login" } 
             </Button>
-            <Button size="large" component={Link} to="/wishlist"  startIcon={<FavoriteBorderIcon />} sx={{ color: "black", textTransform: "none", mr: 1 }}>
+            <Button size="large" component={Link} to={user? "/wishlist" : "/login" }  startIcon={<FavoriteBorderIcon />} sx={{ color: "black", textTransform: "none", mr: 1 }}>
             Wishlist
             </Button>
-            <Button size="medium" variant="outlined"  startIcon={<PhotoCameraOutlinedIcon />} sx={{ color: "black", textTransform: "none", bgcolor: "#8BF5FA" , border: 2,  borderColor: "black" , p: 1, width: 90+"px", borderRadius: 5 }}>
+            <Button size="medium" variant="outlined" component={Link} to={user? "/sell" : "/login" }  startIcon={<PhotoCameraOutlinedIcon />} sx={{ color: "black", textTransform: "none", bgcolor: "#8BF5FA" , border: 2,  borderColor: "black" , p: 1, width: 90+"px", borderRadius: 5 }}>
               Sell
             </Button>
           </Box>

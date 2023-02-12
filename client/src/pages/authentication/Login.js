@@ -3,12 +3,12 @@ import "./style.css";
 import { Container } from "@mui/material";
 import { Button, Divider } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-//import { useStateValue } from "../state/StateProvider";
-//import axios from "axios";
+import { useStateValue } from "../../context/StateProvider";
+import axios from "axios";
 
 const Login = (props) => {
   // eslint-disable-next-line no-empty-pattern
-  //const [{}, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
@@ -37,20 +37,20 @@ const Login = (props) => {
     const email = credentials.email;
     const password = credentials.password;
 
-    // axios.post("/signin", { email, password }).then((res) => {
-    //   if (!res.data.status) {
-    //     setError({
-    //       status: res.data.status,
-    //       message: res.data.message,
-    //     });
-    //   } else {
-    //     dispatch({
-    //       type: "SET_USER",
-    //       user: res.data.user,
-    //     });
-    //     navigate("/");
-    //   }
-    // });
+    axios.post("http://localhost:8000/login", { email, password }).then((res) => {
+      if (!res.data.status) {
+        setError({
+          status: res.data.status,
+          message: res.data.message,
+        });
+      } else {
+        dispatch({
+          type: "SET_USER",
+          item: res.data.user,
+        });
+        navigate("/");
+      }
+    });
   };
 
   return (

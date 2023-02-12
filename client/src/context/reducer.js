@@ -4,7 +4,8 @@ export const initialState = {
     wishList : [],
     city : 'Mumbai',
     category : 'All',
-    search : null
+    search : null,
+    user : null,
 }
 
 const reducer = (state,action) =>{
@@ -47,6 +48,11 @@ const reducer = (state,action) =>{
                 return {
                     ...state,
                 search : action.item,
+            }
+        case 'SET_USER':
+                return {
+                    ...state,
+                user : action.item,
             }
         default:
         return state

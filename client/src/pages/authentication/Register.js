@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import { Container } from "@mui/material";
 import { Button, Divider } from "@mui/material";
-//import axios from "axios";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = (props) => {
@@ -11,6 +11,9 @@ const Register = (props) => {
     username: "",
     email: "",
     password: "",
+    mobile_no: null,
+    city: "",
+    address: ""
   });
   const [error, setError] = useState({
     status: true,
@@ -34,16 +37,20 @@ const Register = (props) => {
     const username = credentials.username;
     const email = credentials.email;
     const password = credentials.password;
+    const mobile_no = credentials.mobile_no;
+    const city = credentials.city
+    const address = credentials.address;
 
-    // axios.post("/register_user", { username, email, password }).then((res) => {
-    //   setError({
-    //     status: res.data.status,
-    //     message: res.data.message,
-    //   });
-    //   if (res.data.status) {
-    //     navigate("/signin");
-    //   }
-    // });
+
+    axios.post(" http://localhost:8000/register_user", { username, email, password, mobile_no, city, address }).then((res) => {
+      setError({
+        status: res.data.status,
+        message: res.data.message,
+      });
+      if (res.data.status) {
+        navigate("/login");
+      }
+    });
   };
 
   return (
@@ -80,8 +87,7 @@ const Register = (props) => {
                 onChange={HandleCredentials}
                 name="mobile_no"
                 type="tel"
-                pattern="[0-9]{3} [0-9]{3} [0-9]{4}" 
-                maxlength="12"
+                maxLength="10"
                 required
               />
                 </div>
