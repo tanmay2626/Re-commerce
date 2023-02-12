@@ -48,6 +48,7 @@ const Login = (props) => {
           type: "SET_USER",
           item: res.data.user,
         });
+        localStorage.setItem("AUTH_TOKEN" , JSON.stringify(res.data.user));
         navigate("/");
       }
     });

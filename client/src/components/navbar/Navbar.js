@@ -49,7 +49,7 @@ function DrawerAppBar(props) {
       <Divider />
       <List sx={{ pt: 1 }} className="mobile-menu-list">
         <ListItem  disablePadding>
-          <ListItemButton component={Link} to="/sell" >
+          <ListItemButton component={Link} to={user? "/sell" : "/login" } >
             <ListItemIcon>
               <PhotoCameraOutlinedIcon />
             </ListItemIcon>

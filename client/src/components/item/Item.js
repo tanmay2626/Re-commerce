@@ -11,8 +11,8 @@ import { useStateValue } from "../../context/StateProvider";
 import { useNavigate } from "react-router-dom";
 
 const Item = (props) => {
-  // eslint-disable-next-line no-empty-pattern
   const navigate = useNavigate();
+  // eslint-disable-next-line no-empty-pattern
   const [{ }, dispatch] = useStateValue();
   const [flag,setFlag] = useState(false);
 

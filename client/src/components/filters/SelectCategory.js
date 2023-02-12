@@ -6,7 +6,8 @@ import { useStateValue } from "../../context/StateProvider";
 
 const Category = (props) => {
 
-  const [{ },dispatch] = useStateValue();
+  // eslint-disable-next-line no-empty-pattern
+  const [{},dispatch] = useStateValue();
 
   const updateCategory = (e) =>{
     dispatch({

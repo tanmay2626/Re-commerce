@@ -10,6 +10,7 @@ const ListItem = (props) => {
     const products = data.products;
     const navigate = useNavigate();
 
+    // eslint-disable-next-line no-empty-pattern
     const [{ }, dispatch] = useStateValue();
 
     const handleListItem = () =>{

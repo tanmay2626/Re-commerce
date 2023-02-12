@@ -8,9 +8,21 @@ import "./style.css";
 import { useStateValue } from "../../context/StateProvider"
 
 const Home = (props) => {
-  const [{ search }] = useStateValue();
+  const [{ search }, dispatch] = useStateValue();
+  const token = localStorage.getItem('AUTH_TOKEN');
 
-  useEffect(()=>{},[search]);
+
+  const loadLocalStorage = () =>{
+    dispatch({
+      type: "SET_USER",
+      item: JSON.parse(token),
+    });
+  }
+
+  useEffect(()=>{
+    token && loadLocalStorage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[search, token]);
 
   return (
     <div className="home-page">

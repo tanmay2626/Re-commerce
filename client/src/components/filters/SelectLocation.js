@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import NativeSelect from "@mui/material/NativeSelect";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import { useStateValue } from "../../context/StateProvider";
@@ -6,6 +6,7 @@ import "./style.css";
 
 const Filter = (props) => {
 
+  // eslint-disable-next-line no-empty-pattern
   const [{ },dispatch] = useStateValue();
 
   const updateLocation = (e) =>{

@@ -25,6 +25,7 @@ const ItemList = (props) => {
 
   useEffect(()=>{
     Filter()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[city, category, search])
 
   const filterValue = Filter()

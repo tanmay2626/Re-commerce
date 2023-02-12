@@ -7,6 +7,7 @@ import { useStateValue } from "../context/StateProvider"
 
 const Search = () => {
 
+  // eslint-disable-next-line no-empty-pattern
   const [{ },dispatch] = useStateValue();
 
   const handleSearch = (e) =>{
