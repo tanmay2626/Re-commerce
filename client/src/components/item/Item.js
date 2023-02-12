@@ -9,6 +9,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useStateValue } from "../../context/StateProvider";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Item = (props) => {
   const navigate = useNavigate();
@@ -42,7 +43,12 @@ const Item = (props) => {
   }
 
   const handleFav = (e) =>{
+    const product_id = props.product_id;
 
+    // axios.post("http://localhost:8000/add_to_list",{ product_id }).then((res)=>{
+    //   //console.log(res.data.message);
+    // });
+    
     if(!flag){
       setFlag(true);
       dispatch({
@@ -53,21 +59,18 @@ const Item = (props) => {
           price : props.price,
           img_url : props.img_url,
         } 
-      })
+      });
+
     }else{
       setFlag(false);
       dispatch({
         type: "REMOVE_FROM_WISHLIST",
         product_id : props.product_id
-      })
+      });
 
     }
 
-  }
-
-  //useEffect(() => { }, [flag])
-  
-
+  }  
 
   return (
     <Card  className="item"  elevation={0} sx={{ textAlign: "right" }}>

@@ -8,6 +8,7 @@ import Login from './pages/authentication/Login';
 import Register from './pages/authentication/Register';
 import WishList from './pages/wishlist/WishList';
 import Profile from './pages/profile/Profile';
+import Sell from './pages/sell/Sell';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <Route path='/register' exact element={<Register />} />
       <Route path='/wishlist' exact element={<WishList />} />
       <Route path='/profile' exact element={<Profile />} />
+      <Route path='/sell' exact element={<Sell />} />
     </Routes>
     </div>
     <Footer />

@@ -3,6 +3,9 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+const multer = require('multer');
+const { v4: uuidv4 } = require('uuid');
+let path = require('path');
 const cors = require("cors");
 const app = express();
 
@@ -11,7 +14,29 @@ app.use(cors());
 app.use(bodyparser.json());
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://localhost:27017/scrapDB')
+mongoose.connect('mongodb+srv://twaykar8:bobo2626@cluster0.s9draqp.mongodb.net/?retryWrites=true&w=majority',{useNewUrlParser: true});
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+      cb(null, 'images');
+  },
+  filename: function(req, file, cb) {   
+      cb(null, uuidv4() + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+
+
+const fileFilter = (req, file, cb) => {
+  const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+  if(allowedFileTypes.includes(file.mimetype)) {
+      cb(null, true);
+  } else {
+      cb(null, false);
+  }
+}
+
+let upload = multer({ storage, fileFilter });
+
 
 
 const userSchema = new mongoose.Schema({
@@ -26,14 +51,14 @@ const userSchema = new mongoose.Schema({
 
 const productSchema = new mongoose.Schema({
     product_name : String,
-    img_url : String,
+    img : String,
     description : String,
     price : Number,
     category : String,
     brand : String,
     created_at : Date,
     usage : String,
-    seller : [userSchema]
+    seller : String
 });
 
 const User = mongoose.model("User",userSchema);
@@ -86,6 +111,37 @@ app.post("/login", (req, res) => {
       }
     });
   });
+
+  app.post("/add_product",upload.single('img'), (req, res) => {
+    const photo = req.file.filename;
+
+    const newProduct = new Product({
+      product_name : req.body.title,
+      img : photo,
+      description : req.body.description,
+      price : req.body.price,
+      category : req.body.category,
+      brand : req.body.brand,
+      created_at : req.body.created_at,
+      usage : req.body.usage,
+      seller : req.body.user
+    })
+    
+    newProduct.save()
+           .then(() => res.status(200).json('Product Added'))
+           .catch(err => res.status(400).json('Error: ' + err));
+})
+
+  // app.post("/add_to_list",(req,res)=>{
+  //   Product.findOne({ email: req.body.product_id }, (err, foundItem) => {
+  //     if (foundUser) {
+  //       res.json({
+  //         status: false,
+  //         message:
+  //           "Your provided Email has already been used. Please use another email address.",
+  //       });
+  //     }
+  // })
 
 app.listen(8000, ()=>{
     console.log("Server is running on port 8000");
