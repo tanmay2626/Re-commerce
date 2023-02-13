@@ -12,7 +12,7 @@ const data = currentItem
   return (
     <div className='product-container'>
       <div className='product-img'>
-      <img alt={data.product_id} src={data.img_url} />
+      <img alt={data.product_id} src={`http://localhost:8000/public/images/${data.img_url}`} />
       </div>
       <div className='product-headline-dsktp'>
       <div className='product-headline'>
@@ -20,7 +20,7 @@ const data = currentItem
       <p>{data.desc}</p>
       </div>
       <div className='product-bill'>
-      <h2>₹ {data.price}</h2>
+      <h2>₹ {data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h2>
       <p>This price is negotiable.</p>
       </div>
       <Divider sx={{ width: { xs: 90 + "%", md: 100+ "%"}, m: "0 auto" }} />

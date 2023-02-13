@@ -17,7 +17,6 @@ const Item = (props) => {
   const [{ }, dispatch] = useStateValue();
   const [flag,setFlag] = useState(false);
 
-
   const d = new Date().toDateString();
   const val = d.split(" ");
 
@@ -79,7 +78,7 @@ const Item = (props) => {
       !flag ? <FavoriteBorderIcon sx={{ fontSize: 25, color: "white" }} /> : <FavoriteIcon sx={{ fontSize: 25, color: "#8BF5FA" }} />
     }
 </IconButton>
-      <CardMedia onClick={handleClick}  className="item-img" component="img" alt="green iguana" sx={{ objectFit: "contain" }} image={props.img_url} />
+      <CardMedia onClick={handleClick}  className="item-img" component="img" alt="green iguana" sx={{ objectFit: "contain" }} image={`http://localhost:8000/public/images/${props.img_url}`} />
       <CardContent sx={{ p: 1, "&:last-child": { pb: 0 }, textAlign: "left" }}>
         <Typography
           sx={{

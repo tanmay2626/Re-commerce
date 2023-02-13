@@ -9,6 +9,7 @@ let path = require('path');
 const cors = require("cors");
 const app = express();
 
+app.use("/public", express.static("public"));
 app.use(bodyparser.urlencoded({ extended : true }));
 app.use(cors());
 app.use(bodyparser.json());
@@ -18,7 +19,7 @@ mongoose.connect('mongodb+srv://twaykar8:bobo2626@cluster0.s9draqp.mongodb.net/?
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-      cb(null, 'images');
+      cb(null, 'public/images');
   },
   filename: function(req, file, cb) {   
       cb(null, uuidv4() + '-' + Date.now() + path.extname(file.originalname));
@@ -58,14 +59,41 @@ const productSchema = new mongoose.Schema({
     brand : String,
     created_at : Date,
     usage : String,
-    seller : String
+    seller_details : {
+      token : mongoose.Schema.Types.ObjectId,
+      name : String,
+      city : String,
+      mobile_no : String
+    }
 });
 
 const User = mongoose.model("User",userSchema);
 const Product = mongoose.model("Product",productSchema);
 
 app.get("/",(req,res)=>{
-    res.send("Hello! it's ScrapYar's Server.")
+  res.send("Hello! it's ScrapYar's Server.")
+});
+
+
+app.get("/get_products",(req,res)=>{
+  Product.find({},(err,item)=>{
+    if(err){
+      console.log(err);
+    }else{
+      res.json(item)
+    }
+  })
+});
+
+app.post("/get_products",(req,res)=>{
+  console.log(req.body.seller);
+  User.findOne({ _id : req.body.seller },(err,item)=>{
+    if(err){
+      console.log(err);
+    }else{
+      console.log(item);
+    }
+  })
 });
 
 app.post("/register_user", (req, res) => {
@@ -124,8 +152,13 @@ app.post("/login", (req, res) => {
       brand : req.body.brand,
       created_at : req.body.created_at,
       usage : req.body.usage,
-      seller : req.body.user
-    })
+      seller_details : {
+        token : req.body.user_id,
+        name : req.body.username,
+        city : req.body.user_city,
+        mobile_no : req.body.user_mobile_no
+      }
+    });
     
     newProduct.save()
            .then(() => res.status(200).json('Product Added'))

@@ -64,7 +64,11 @@ const Register = (props) => {
     formData.append("created_at", d);
     formData.append("img", img);
     formData.append("category", category);
-    formData.append("user", user._id);
+    formData.append("user_id", user._id);
+    formData.append("username", user.username);
+    formData.append("user_city", user.city);
+    formData.append("user_mobile_no", user.mobile_no);
+
 
     axios
       .post("http://localhost:8000/add_product", formData, {
