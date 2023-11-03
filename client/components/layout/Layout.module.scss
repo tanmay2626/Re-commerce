@@ -1,0 +1,73 @@
+@import "@/styles/_config.scss";
+
+.header{
+    display: flex;
+    top: 0;
+    height: $header_height;
+    padding: 1rem;
+    z-index: 1;
+    background-color: white;
+    -webkit-box-shadow: 0 10px 10px -10px #000000;
+   -moz-box-shadow: 0 10px 10px -10px #000000;
+        box-shadow: 0 10px 10px -10px #000000;
+}
+
+.logo{
+    flex: 0.7;
+    display: flex;
+}
+
+.features{
+    flex: 0.3;
+    display: flex;
+    justify-content: right;
+
+}
+
+.login__button{
+    text-align: right;
+
+    & > img {
+        width: 50px;
+            border-radius: 45px;
+            height: auto;
+    }
+}
+
+
+@media only screen and (max-width: 767px){
+    .header{
+        height: 2.5rem;
+        position: sticky;
+        top: 0;
+    }
+    .logo{
+        .creative_logo_img{
+            width: 200px;
+        }
+
+        .logo_img{
+            width: 200px;
+            margin-left: -20px;
+        }
+    }
+
+    .buttons{
+        & > button{
+            font-size: 1rem;
+            padding: 1px 15px;
+        }
+    }
+
+    .search_mb{
+        display: none;
+    }
+}
+
+.footer{
+    text-align: center;
+    width: 98vw;
+    padding: 1rem 0px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+}
